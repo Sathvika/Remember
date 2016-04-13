@@ -1,0 +1,69 @@
+h1 {
+    text-align: center;
+    font-family: 'Lobster', cursive;
+    font-size: 38px;
+}
+
+body {
+    /*font-family: Georgia serif;*/
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+p {
+    font-size: 1.2em;
+}
+
+.nav-pills > li > a {
+    font-size: 16px;
+    border: 2px solid #337ab7;
+    border-radius: 0;
+    color: #337ab7;
+    box-shadow: none;
+    font-weight: 700;
+}
+.nav-pills > li > a:hover {
+    background-color: #337ab7;
+    color:white;
+}
+
+.centered-pills {
+    text-align: center;
+}
+
+.centered-pills ul.nav-pills {
+    display: inline-block;
+}
+
+.centered-pills li {
+    display: inline;
+}
+
+.centered-pills a {
+    float: left;
+}
+
+.navbar .nav-pills > li > a:hover {
+    background-color: #0088cc;
+}
+
+.navbar .nav-pills .active > a {
+    background-color: #ccc;
+    color: #0088cc;
+}
+
+#writePost {
+    border: 1px solid gray;
+    border-radius: 10px;
+    height: 200px;
+    width: 100%;
+    display: block;
+}
+
+.myBtn {
+    background-color: white;
+    border-width: medium;
+    border-radius: 0;
+    color: #337ab7;
+    box-shadow: none;
+    font-weight: 700;
+}
