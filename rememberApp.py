@@ -4,6 +4,7 @@ app = Flask(__name__)
 
 
 @app.route('/')
+@app.route('/index')
 @app.route('/write')
 def write():
     return render_template('write.html', text="WRITE")
@@ -15,8 +16,6 @@ def read():
 @app.route('/settings')
 def settings():
     return render_template('settings.html', text="SETTINGS")
-
-
 
 
 if __name__ == '__main__':
