@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="row">
+        <div class="col-sm-9">
+            <h2>{{ text }}</h2>
+        </div>
+        <div class="col-sm-3">
+            <label><input type="radio" name="ascOrDesc" value="Ascending" onchange="changeSort()">&nbsp;Ascending</label>
+            <label><input type="radio" name="ascOrDesc" value="Descending" onchange="changeSort()">&nbsp;Descending</label>
+        </div>
+    </div>
+
+    <div id="postsGoHere"></div>
+    <div>
+        {% for post in posts %}
+            <div class="row posts">
+                <p class="col-sm-6">{{ post.content }}</p>
+                <p class="col-sm-4">{{ post.date }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    <br>
+    <button class="btn btn-primary myBtn" onclick="populatePosts()">Console log a list</button>
+{% endblock %}

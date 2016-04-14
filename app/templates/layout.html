@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" type='text/css'>
+    <title>Remember</title>
+</head>
+<body>
+
+
+<div class="container">
+    <nav class="navbar navbar-static-top">
+        <h1>Remember</h1>
+        <div class="centered-pills">
+            <ul class="nav nav-pills">
+                <li role="presentation"><a href="/write">Write Post</a></li>
+                <li role="presentation"><a href="/read">Read Posts</a></li>
+                <!--<li role="presentation"><a href="/settings">Settings</a></li>-->
+                <li role="presentation"><a href="/users">Login/Sign Up</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+</div>
+</body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
