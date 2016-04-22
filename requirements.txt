@@ -1,4 +1,8 @@
 Flask==0.10.1
+<<<<<<< HEAD
+Flask-Login==0.3.2
+=======
+>>>>>>> 5e0aa7209ae5a1a3b9959f54ab7946782ddd36ec
 Flask-SQLAlchemy==2.1
 itsdangerous==0.24
 Jinja2==2.8
@@ -10,10 +14,18 @@ post==0.0.5
 py2app==0.7.3
 request==0.0.5
 requests==2.9.1
+<<<<<<< HEAD
+requests-futures==0.9.7
+=======
+>>>>>>> 5e0aa7209ae5a1a3b9959f54ab7946782ddd36ec
 requests-oauthlib==0.6.1
 SQLAlchemy==1.0.12
 virtualenv==15.0.1
 Werkzeug==0.11.4
+<<<<<<< HEAD
+WTForms==2.1
+=======
+>>>>>>> 5e0aa7209ae5a1a3b9959f54ab7946782ddd36ec
 xattr==0.6.4
 xlrd==0.9.4
 zope.interface==4.1.1

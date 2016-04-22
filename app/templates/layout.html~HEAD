@@ -15,14 +15,15 @@
         <h1>Remember</h1>
         <div class="centered-pills">
             <ul class="nav nav-pills">
-                <li role="presentation"><a href="/write">Write Post</a></li>
-                <li role="presentation"><a href="/read">Read Posts</a></li>
-<<<<<<< HEAD:templates/layout.html
-                <li role="presentation"><a href="/settings">Settings</a></li>
-=======
-                <!--<li role="presentation"><a href="/settings">Settings</a></li>-->
->>>>>>> 5e0aa7209ae5a1a3b9959f54ab7946782ddd36ec:app/templates/layout.html
-                <li role="presentation"><a href="/users">Login/Sign Up</a></li>
+                {% if logged_in%}
+                    <li role="presentation"><a href="/write">Write New Post</a></li>
+                    <li role="presentation"><a href="/read">My Post Archive</a></li>
+                    <li role="presentation"><a href="/settings">Settings</a></li>
+                    <li role="presentation"><a href="/logout">Logout</a></li>
+                {% else %}
+                    <li role="presentation"><a href="/login">Login</a></li>
+                    <li role="presentation"><a href="/register">Register</a></li>
+                {% endif %}
             </ul>
         </div>
     </nav>

@@ -2,11 +2,16 @@
 {% block content %}
     <div class="row">
         <div class="col-sm-9">
+<<<<<<< HEAD
+            <h2>Hello, {{ displayName }}</h2>
+            <h3>Here are {{ whose_posts }} previous posts</h3>
+=======
             <h2>{{ text }}</h2>
         </div>
         <div class="col-sm-3">
             <label><input type="radio" name="ascOrDesc" value="Ascending" onchange="changeSort()">&nbsp;Ascending</label>
             <label><input type="radio" name="ascOrDesc" value="Descending" onchange="changeSort()">&nbsp;Descending</label>
+>>>>>>> 5e0aa7209ae5a1a3b9959f54ab7946782ddd36ec
         </div>
     </div>
 
@@ -16,9 +21,18 @@
             <div class="row posts">
                 <p class="col-sm-6">{{ post.content }}</p>
                 <p class="col-sm-4">{{ post.date }}</p>
+<<<<<<< HEAD
+            {% if whose_posts == "all" %}
+                <p class="col-sm-2">{{ post.user | getNameById }}</p>
+            {% endif %}
+=======
+>>>>>>> 5e0aa7209ae5a1a3b9959f54ab7946782ddd36ec
             </div>
         {% endfor %}
     </div>
     <br>
+<<<<<<< HEAD
+=======
     <button class="btn btn-primary myBtn" onclick="populatePosts()">Console log a list</button>
+>>>>>>> 5e0aa7209ae5a1a3b9959f54ab7946782ddd36ec
 {% endblock %}

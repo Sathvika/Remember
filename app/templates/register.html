@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h2>Register</h2>
+    <br>
+    <div class="row">
+        <div class="col-md-7">
+            <form method="POST" action="/register" class="form-horizontal">
+                <div class="form-group row">
+                    <label class="control-label col-sm-3">{{ form.username.label }}</label>
+                    <div class="col-sm-9">
+                        {{ form.username(class="css_class") }}
+                    </div>
+                    {% if form.username.errors %}
+                        <ul class="errors">{% for error in form.username.errors %}
+                            <li>{{ error }}</li>{% endfor %}</ul>
+                    {% endif %}
+                </div>
+                <div class="form-group row">
+                    <label class="control-label col-sm-3">{{ form.password.label }}</label>
+                    <div class="col-sm-9">
+                        {{ form.password() }}
+                    </div>
+
+                    {% if form.password.errors %}
+                        <ul class="errors">{% for error in form.password.errors %}
+                            <li>{{ error }}</li>{% endfor %}</ul>
+                    {% endif %}
+                </div>
+                <div class="form-group row">
+                    <label class="control-label col-sm-3">{{ form.password2.label }}</label>
+                    <div class="col-sm-9">
+                        {{ form.password2() }}
+                    </div>
+
+                    {% if form.password2.errors %}
+                        <ul class="errors">{% for error in form.password2.errors %}
+                            <li>{{ error }}</li>{% endfor %}</ul>
+                    {% endif %}
+                </div>
+                <button type="submit" class="btn btn-primary myBtn" value="Submit">Register</button>
+            </form>
+        </div>
+        <div class="col-md-5">
+            {% with messages = get_flashed_messages(category_filter=["register"]) %}
+                {% if messages %}
+                    <div class=flashes>
+                        {% for message in messages %}
+                            <p>{{ message }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+        </div>
+    </div>
+{% endblock %}

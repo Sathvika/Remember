@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h2>Log in</h2>
+    <br>
+    <form method="POST" action="/login" class="form-horizontal">
+        <div class="form-group row">
+            <label class="control-label col-sm-2">{{ form.username.label }}</label>
+            <div class="col-sm-10">
+                {{ form.username(class="css_class") }}
+            </div>
+            {% if form.username.errors %}
+                <ul class="errors">{% for error in form.username.errors %}
+                    <li>{{ error }}</li>{% endfor %}</ul>
+            {% endif %}
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-sm-2">{{ form.password.label }}</label>
+            <div class="col-sm-10">
+                {{ form.password() }}
+            </div>
+
+            {% if form.password.errors %}
+                <ul class="errors">{% for error in form.password.errors %}
+                    <li>{{ error }}</li>{% endfor %}</ul>
+            {% endif %}
+        </div>
+        <button type="submit" class="btn btn-primary myBtn" value="Submit">Log in</button>
+
+    </form>
+
+{% endblock %}

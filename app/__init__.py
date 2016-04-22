@@ -1,8 +1,16 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+<<<<<<< HEAD
+import flask.ext.login as flask_login
 import os
 
 app = Flask(__name__)
+app.secret_key = 'super secret string'
+=======
+import os
+
+app = Flask(__name__)
+>>>>>>> 5e0aa7209ae5a1a3b9959f54ab7946782ddd36ec
 
 #set up database
 user = 't8tqsg2cy22gsoid'
@@ -15,6 +23,17 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
 db = SQLAlchemy(app)
 
+<<<<<<< HEAD
+login_manager = flask_login.LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = 'login'
+
 from app import rememberApp, models
 
 db.create_all()
+
+=======
+from app import rememberApp, models
+
+db.create_all()
+>>>>>>> 5e0aa7209ae5a1a3b9959f54ab7946782ddd36ec

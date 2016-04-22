@@ -23,14 +23,11 @@ p {
 }
 .nav-pills > li > a:hover {
     background-color: #FF6956;/*#337ab7;*/
-<<<<<<< HEAD:static/style.css
-=======
     color: white;
 }
 
 .nav-pills > li > a:active {
     background-color: #FF6956;/*#337ab7;*/
->>>>>>> 5e0aa7209ae5a1a3b9959f54ab7946782ddd36ec:app/static/style.css
     color:white;
 }
 
@@ -78,9 +75,6 @@ p {
 
 .posts {
     border-bottom: 2px solid #b6b6b6;
-<<<<<<< HEAD:static/style.css
-    padding-top: 5px;
-=======
     padding-top: 10px;
 }
 
@@ -88,6 +82,17 @@ p {
     color: #FF6956;
 }
 #formMsg-success {
-    color:#337ab7;
->>>>>>> 5e0aa7209ae5a1a3b9959f54ab7946782ddd36ec:app/static/style.css
+    color: #337ab7;
+}
+
+.success {
+    background-color: #337ab7;
+    padding: 10px;
+    color: white;
+}
+
+.error {
+    background-color: #FF6956;
+    padding: 10px;
+    color: white;
 }

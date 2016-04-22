@@ -1,6 +1,17 @@
 /**
  * Created by margiechubin on 4/13/16.
  */
+<<<<<<< HEAD
+
+function writePost() {
+    var content = document.getElementById('writePost').value;
+    console.log(content);
+    var postMessage = document.getElementById('postMessage');
+    postMessage.innerHTML = "";
+
+    if (content !== "") {
+        var contentData = JSON.stringify({content: content});
+=======
 function writePost() {
     var content = document.getElementById('writePost').value;
     console.log(content);
@@ -9,6 +20,7 @@ function writePost() {
         console.log('has content yay');
         var contentData = JSON.stringify({content: content});
         console.log(contentData);
+>>>>>>> 5e0aa7209ae5a1a3b9959f54ab7946782ddd36ec
 
         $.ajax({
             url: '/submitPost', //https://cs242project.herokuapp.com
@@ -18,6 +30,23 @@ function writePost() {
             dataType: 'json',
             success: function (dataReturned) {
                 console.log(dataReturned);
+<<<<<<< HEAD
+                document.getElementById('writePost').value = "";
+                postMessage.innerHTML = "New post created";
+                $('#postMessage').removeClass('error').addClass('success');
+            },
+            error: function (err) {
+                console.log(err);
+                postMessage.innerHTML = "Error creating post";
+                $('#postMessage').removeClass('success').addClass('error');
+            }
+        });
+    } else {
+        postMessage.innerHTML = "Please write something";
+        $('#postMessage').removeClass('success').addClass('error');
+    }
+}
+=======
             },
             error: function (err) {
                 console.log(err);
@@ -104,3 +133,4 @@ function getAllUsers() {
         }
     });
 }
+>>>>>>> 5e0aa7209ae5a1a3b9959f54ab7946782ddd36ec
