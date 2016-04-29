@@ -1,38 +1,58 @@
 {% extends "layout.html" %}
 {% block content %}
+    <h2>Hello, {{ displayName }}</h2>
     <div class="row">
         <div class="col-sm-9">
-<<<<<<< HEAD
-            <h2>Hello, {{ displayName }}</h2>
-            <h3>Here are {{ whose_posts }} previous posts</h3>
-=======
-            <h2>{{ text }}</h2>
+            <h3>Here are {{ whose_posts }} posts</h3>
         </div>
         <div class="col-sm-3">
-            <label><input type="radio" name="ascOrDesc" value="Ascending" onchange="changeSort()">&nbsp;Ascending</label>
-            <label><input type="radio" name="ascOrDesc" value="Descending" onchange="changeSort()">&nbsp;Descending</label>
->>>>>>> 5e0aa7209ae5a1a3b9959f54ab7946782ddd36ec
+            <label class="radio"><input type="radio" name="postView" value="list" onchange="changeView(this.value)"
+                                        checked>
+                <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> List View
+            </label>
+            <label class="radio"><input type="radio" name="postView" value="gallery" onchange="changeView(this.value)">
+                <span class="glyphicon glyphicon-th" aria-hidden="true"></span> Gallery View
+            </label>
         </div>
     </div>
 
-    <div id="postsGoHere"></div>
-    <div>
+    <div id="listView">
         {% for post in posts %}
             <div class="row posts">
-                <p class="col-sm-6">{{ post.content }}</p>
-                <p class="col-sm-4">{{ post.date }}</p>
-<<<<<<< HEAD
-            {% if whose_posts == "all" %}
-                <p class="col-sm-2">{{ post.user | getNameById }}</p>
-            {% endif %}
-=======
->>>>>>> 5e0aa7209ae5a1a3b9959f54ab7946782ddd36ec
+                <p class="col-sm-2">
+                    <img src="{{ post.url }}" class="imgg">
+                </p>
+                <p class="col-sm-5"><i>{{ post.content }}</i></p>
+                <p class="col-sm-3"><span class="dates">{{ post.date }}</span></p>
+                <div class="col-sm-2">
+                    <h3><a href="/edit/{{ post.id }}"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+                    </h3>
+                    {% if whose_posts == "all" %}
+                        <p>{{ post.user | getNameById }}</p>
+                    {% endif %}
+                </div>
             </div>
         {% endfor %}
     </div>
-    <br>
-<<<<<<< HEAD
-=======
-    <button class="btn btn-primary myBtn" onclick="populatePosts()">Console log a list</button>
->>>>>>> 5e0aa7209ae5a1a3b9959f54ab7946782ddd36ec
+
+    <div class="row" id="gridView">
+        {% for post in posts %}
+            <div class="col-md-4 gridPosts">
+                <div class="row">
+                    <span class="col-md-10">
+                    <img src="{{ post.url }}" class="grid-imgg">
+                        </span>
+                    <h3><a class="col-md-2" href="/edit/{{ post.id }}"><span class="glyphicon glyphicon-edit"
+                                                                             aria-hidden="true"></span></a></h3>
+                </div>
+
+                <p><i>{{ post.content }}</i></p>
+                <p><span class="dates">{{ post.date }}</span></p>
+                {% if whose_posts == "all" %}
+                    <p>{{ post.user | getNameById }}</p>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+
 {% endblock %}

@@ -3,66 +3,40 @@ from datetime import datetime
 
 
 class Content(db.Model):
-<<<<<<< HEAD
     __tablename__ = 'content'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     content = db.Column(db.String(300))
     date = db.Column(db.DateTime)
     user = db.Column(db.Integer, db.ForeignKey('user.id'))
-=======
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    content = db.Column(db.String(300))
-    date = db.Column(db.DateTime)
-    user = db.Column(db.String(20))  # id int?
->>>>>>> 5e0aa7209ae5a1a3b9959f54ab7946782ddd36ec
+    url = db.Column(db.String(100), default="http://i.imgur.com/nSwnHBm.jpg")
 
-    def __init__(self, content, user):
+    def __init__(self, content, user, url):
         self.content = content
         self.user = user
         self.date = datetime.today()
+        self.url = url
 
     def __repr__(self):
         return '<Content %r , User %r>' % (self.content, self.user)
 
 
 class User(db.Model):
-<<<<<<< HEAD
     __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     username = db.Column(db.String(20))
     password = db.Column(db.String(20))
     children = db.relationship("Content")
 
-    # authenticated = db.Column(db.Boolean, default=False)
-=======
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    username = db.Column(db.String(20))
-    password = db.Column(db.String(20))
->>>>>>> 5e0aa7209ae5a1a3b9959f54ab7946782ddd36ec
-
     def __init__(self, username, password):
         self.username = username
         self.password = password
         self.date = datetime.today()
 
-<<<<<<< HEAD
-    # @property
-    def is_authenticated(self):
-        return self.authenticated
-
-    # @property
-    def is_active(self):
-        return True
-
     def get_id(self):
         return unicode(self.id)
 
-    def is_anonymous(self):
-        """False, as anonymous users aren't supported."""
-        return False
-
     def __repr__(self):
-        return '<Username %r>' % (self.username)
+        return '<Username %r>' % self.username
 
 
 class Settings(db.Model):
@@ -82,9 +56,21 @@ class Settings(db.Model):
         self.user = user
 
     def __repr__(self):
-        return '<displayName %r , notificationTime %r, notifications on %r, public posts %r>' %\
+        return '<displayName %r , notificationTime %r, notifications on %r, public posts %r>' % \
                (self.displayName, self.notificationTime, self.notification, self.public)
-=======
+
+
+class Photo(db.Model):
+    __tablename__ = 'Photo'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    filename = db.Column(db.String(30))
+    user = db.Column(db.String(20))
+    url = db.Column(db.String(100))
+
+    def __init__(self, filename, user, url):
+        self.filename = filename
+        self.user = user
+        self.url = url
+
     def __repr__(self):
-        return '<Username %r>' % (self.username)
->>>>>>> 5e0aa7209ae5a1a3b9959f54ab7946782ddd36ec
+        return '<Filename %r, Username %r, URL %r>' % (self.filename, self.user, self.url)

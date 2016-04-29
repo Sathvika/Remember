@@ -1,4 +1,83 @@
 {% extends "layout.html" %}
 {% block content %}
-<h2>{{ text }}</h2>
+    <h2>Settings</h2>
+    <ul class="nav nav-tabs settings-tabs">
+        <li class="active"><a href="#general" data-toggle="tab">General</a></li>
+        <li><a href="#notifications" data-toggle="tab">Notifications</a></li>
+        <li><a href="#freqs" data-toggle="tab">Word Frequency Usage</a></li>
+    </ul>
+    <br>
+
+    <div class="tab-content settings-content">
+
+        <div class="tab-pane fade in active" id="general">
+            <h3>General Settings</h3>
+            <form role="form" method="POST" action="/saveGeneralSettings" class="form-horizontal">
+
+                <div class="form-group row">
+                    <label class="control-label col-sm-3">{{ form.displayName.label }}</label>
+                    <div class="col-sm-9">
+                        {{ form.displayName(class="css_class") }}
+                    </div>
+                    {% if form.displayName.errors %}
+                        <ul class="errors">{% for error in form.displayName.errors %}
+                            <li>{{ error }}</li>{% endfor %}</ul>
+                    {% endif %}
+                </div>
+
+                <div class="form-group row">
+                    <label class="control-label col-sm-3">{{ form.public.label }}</label>
+                    <div class="col-sm-9">
+                        {{ form.public(class="css_class") }}
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary myBtn" value="Submit">Save</button>
+
+            </form>
+
+        </div>
+
+        <div id="notifications" class="tab-pane fade ">
+            <h3>Mobile Notification Settings</h3>
+            <form role="form" method="POST" action="/saveNotificationSettings" class="form-horizontal">
+
+                <div class="form-group row">
+                    <label class="control-label col-sm-3">{{ form.notification.label }}</label>
+                    <div class="col-sm-9">
+                        {{ form.notification(class="css_class") }}
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="control-label col-sm-3">{{ form.date.label }}</label>
+                    <div class="col-sm-9">
+                        {{ form.date(class="css_class") }}
+                    </div>
+                    {% if form.date.errors %}
+                        <ul class="errors">{% for error in form.date.errors %}
+                            <li>{{ error }}</li>{% endfor %}</ul>
+                    {% endif %}
+                </div>
+
+                <button type="button" class="btn btn-primary myBtn">Save</button>
+
+            </form>
+
+        </div>
+        <div id="freqs" class="tab-pane fade">
+            <table class="table">
+                <tr>
+                    <th>Word</th>
+                    <th>Count</th>
+                </tr>
+                {% for word in freq_data %}
+                    <tr>
+                        <td>{{ freq_data[word].key }}</td>
+                        <td>{{ freq_data[word].value }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
 {% endblock %}

@@ -40,16 +40,5 @@
                 <button type="submit" class="btn btn-primary myBtn" value="Submit">Register</button>
             </form>
         </div>
-        <div class="col-md-5">
-            {% with messages = get_flashed_messages(category_filter=["register"]) %}
-                {% if messages %}
-                    <div class=flashes>
-                        {% for message in messages %}
-                            <p>{{ message }}</p>
-                        {% endfor %}
-                    </div>
-                {% endif %}
-            {% endwith %}
-        </div>
     </div>
 {% endblock %}

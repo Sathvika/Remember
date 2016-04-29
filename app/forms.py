@@ -1,6 +1,7 @@
 from wtforms import Form, StringField, PasswordField, DateTimeField, BooleanField
 from wtforms.validators import InputRequired, EqualTo
 
+
 class LoginForm(Form):
     username = StringField('Username', [InputRequired("please enter your username")])
     password = PasswordField('Password', [InputRequired("please enter your password")])
@@ -22,7 +23,8 @@ class LoginForm(Form):
 
 class RegisterForm(Form):
     username = StringField('Username', [InputRequired("please enter a username")])
-    password = PasswordField('Password', [InputRequired("please enter a password"), EqualTo('password2', message='Passwords must match')])
+    password = PasswordField('Password', [InputRequired("please enter a password"),
+                                          EqualTo('password2', message='Passwords must match')])
     password2 = PasswordField('Password Again', [InputRequired("type your password again")])
 
     def validate_on_submit(self):
@@ -38,4 +40,4 @@ class SettingForm(Form):
     date = DateTimeField('Notification Time')
     notification = BooleanField('Turn on Notifications')
     public = BooleanField('See all posts')
-    #public = BooleanField('Make my posts public')
+    # public = BooleanField('Make my posts public')
